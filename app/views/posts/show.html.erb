@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1><%= @post.title %></h1>
+      <p><%= @post.content %></p>
+
+      <div id="reactions">
+        <h2>Reacciones:</h2>
+        <% @reactions.each do |reaction| %>
+          <p><%= reaction.reaction_type %> por <%= reaction.user.name %></p>
+        <% end %>
+      </div>
+
+      <div id="comments">
+        <h2>Comentarios:</h2>
+        <% @comments.each do |comment| %>
+          <p><%= comment.content %> por <%= comment.user.name %></p>
+        <% end %>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= form_with(model: [@post, Reaction.new], remote: true) do |form| %>
+            <%= form.select(:reaction_type, ['Me gusta', 'No me gusta'], { prompt: 'Seleccionar reacción' }, class: "form-select mb-2") %>
+            <%= form.submit "Reaccionar", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <%= form_with(model: [@post, Comment.new], remote: true) do |form| %>
+            <%= form.text_area :content, class: "form-control mb-2", placeholder: "Escribe un comentario" %>
+            <%= form.submit "Comentar", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+
+      <%= link_to "Volver a todas las publicaciones", posts_path, class: "btn btn-secondary mt-3" %>
+    </div>
+  </div>
+</div>

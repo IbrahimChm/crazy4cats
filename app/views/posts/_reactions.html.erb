@@ -1,0 +1,6 @@
+<div id="reactions">
+    <h2>Reacciones:</h2>
+    <% reactions.each do |reaction| %>
+      <p><%= reaction.reaction_type %> por <%= reaction.user.name %></p>
+    <% end %>
+  </div>

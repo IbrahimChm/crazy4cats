@@ -1,0 +1,2 @@
+<% @post.reactions.reload %>
+$('#reactions').html('<%= j render partial: "reactions", locals: { reactions: @post.reactions } %>');

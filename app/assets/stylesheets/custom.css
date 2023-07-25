@@ -1,0 +1,9 @@
+/* Estilo para el encabezado h1 */
+h1 {
+    color: #007bff;
+  }
+  
+  /* Estilo para las tarjetas de publicaciones */
+  .card {
+    margin-bottom: 20px;
+  }

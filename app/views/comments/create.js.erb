@@ -1,0 +1,2 @@
+<% @post.comments.reload %>
+$('#comments').html('<%= j render partial: "comments", locals: { comments: @post.comments } %>');

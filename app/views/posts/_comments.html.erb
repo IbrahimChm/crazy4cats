@@ -1,0 +1,6 @@
+<div id="comments">
+    <h2>Comentarios:</h2>
+    <% comments.each do |comment| %>
+      <p><%= comment.content %> por <%= comment.user.name %></p>
+    <% end %>
+  </div>
